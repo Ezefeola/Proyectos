@@ -1,0 +1,307 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+/* Globales */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /* Este  box sizing lo que hace es si definimos un padding este
+    no afecta al tamaño del elemento. */
+    
+    /* scroll-snap-type: y mandatory; */
+}
+
+/* Scroll Snap */
+/* .navegacion-principal,
+.servicios,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif; 
+    /* Esta es la fuente general del sitio web, todo lo que va en 
+    el body es un estilo general. */
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100% );
+}
+
+/* Definimos parametros predeterminados para los titulos, tanto
+en su tamaño de fuente como su alineacion. 
+A esto se lo define como design systems*/
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Tipografia */
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+/* Estas 2 propiedades utilizadas en las etiquetas html y body, son para
+que sea mas facil trabajar con la unidad de medida rem. */
+
+/* Titulo */
+
+.titulo span {
+    font-size: 2rem;  /* 1 rem = 10px */
+}
+
+/* Utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* Navbar  Navegacion principal*/
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.navegacion-principal  a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.navegacion-principal  a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* Hero */
+
+.hero {
+    background-image: url(../hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgb(0, 0, 0, .7);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+    }
+}
+
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /* En CSS Grid se puede definir contenido de izquierda a derecha
+        O de arriba hacia abajo. */
+        /* Columns para columnas */
+        grid-template-columns: repeat(3, 1fr);
+    
+        /* Rows para filas */
+        /* grid-template-rows: 200px 800px; */
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+    
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Contacto  */
+
+.formulario {
+    background-color: var(--gris);
+    /*Utilizar el valor mas pequeño. esto toma 2 valores, 60rem y sino 100% */
+    width: min(60rem, 100%); 
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .correo {
+        grid-column: 1 / 3; /*Este se utiliza para posicionar un elemento */
+        /* Lo que le estoy indicando con 1 / 3 es que vaya de la columna 1 a la 3 */
+        /* Esto mismo puede utilizarse para cambiar filas con grid row */
+    }
+
+    .mensaje {
+        grid-column: 1 / 3;
+    }
+
+
+}
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
+}
